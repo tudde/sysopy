@@ -20,27 +20,25 @@ MemArray create_MemArray(int size){
 void run_wc(MemArray* mainArray, char* filename){
     char wcToTmp[255] = "wc ";
     char saveTo[] =" > ";
-    char tmpName[]="costamXXXXXX";
-    mkstemp(tmpName);
+    char tmpPath[]="/tmp/costamXXXXXX";
+    mkstemp(tmpPath);
     
     
-    char tmpPath[18]="/tmp/";
-    strcat(tmpPath,tmpName);
+    // char tmpPath[18]="/tmp/";
+    // strcat(tmpPath,tmpName);
 
     
 
     strcat(wcToTmp, filename);
     strcat(wcToTmp, saveTo);
     strcat(wcToTmp, tmpPath);
-    printf("%s",wcToTmp);
-    
+
 
     char rmTmp[20]="rm ";
     strcat(rmTmp,tmpPath);
     
 
-    //int err=system(wcToTmp);
-    int err=-1;
+    int err=system(wcToTmp);
     if(err!=-1){
         FILE* tmpPtr;
         char buff[255];
