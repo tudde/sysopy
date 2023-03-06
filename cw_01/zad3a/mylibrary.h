@@ -1,4 +1,4 @@
-#ifndef MYLIBRARY_H_  
+#ifndef MYLIBRARY_H_   /* Include guard */
 #define MYLIBRARY_H_
 
 

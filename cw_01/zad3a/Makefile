@@ -22,5 +22,16 @@ static-lib:
 shared-lib:
 		$(CC) $(CFLAGS) -shared -fPIC mylibrary.c -o libmylibrary.so
 
+test-static:  static
+	./main < test_commands.txt > results_static.txt 
+
+
+test-shared:  shared
+	./main < test_commands.txt > results_shared.txt 
+
+test-dynamic:  static
+	./main < test_commands.txt > results_dynamic.txt 
+
+
 clean:
-		rm *.o *.a *.so main mylibrary test
+		rm *.o *.so *.a results* main mylibrary test

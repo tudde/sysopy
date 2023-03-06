@@ -36,7 +36,7 @@ void run_wc(MemArray* mainArray, char* filename){
     
 
     int err=system(wcToTmp);
-    if(err!=-1){
+    if(err==0){
         
         FILE* tmpPtr;
         char buff[255];
@@ -59,7 +59,6 @@ void run_wc(MemArray* mainArray, char* filename){
 }
 
 char* value_at(MemArray* mainArray, int idx){
-    printf("%d%d",idx,mainArray->taken);
     if(idx>=mainArray->taken){
         return "No such index exists\n";
     }
@@ -72,18 +71,7 @@ void remove_at(MemArray* mainArray, int idx){
     free(mainArray->ptrArray[idx]);
 }
 void free_array(MemArray* mainArray){
-    for(int i=0;i<mainArray->taken;i++){
-        remove_at(mainArray, i);
-    }
+    
     free(mainArray->ptrArray);
 }
 
-// int main() {
-//     MemArray *a = create_MemArray(5);
-    
-//     run_wc(a,"mylibrary.c");
-    
-//     printf("%s\n", value_at(a,0));
-//     printf("%s\n", value_at(a,1));
-//    return 0;
-// }
