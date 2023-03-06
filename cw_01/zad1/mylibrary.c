@@ -2,12 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct MemArray{
+typedef struct{
     char** ptrArray;
     int size;
     int taken;
-};
-typedef struct MemArray MemArray;
+} MemArray;
+
 
 MemArray create_MemArray(int size){
     MemArray res;
@@ -61,30 +61,30 @@ void run_wc(MemArray* mainArray, char* filename){
     }
 }
 
-char* valueAt(MemArray mainArray, int idx){
+char* value_at(MemArray mainArray, int idx){
     if(idx>=mainArray.taken){
         return "No such index exists\n";
     }
     return mainArray.ptrArray[idx];
 }
-void removeAt(MemArray mainArray, int idx){
+void remove_at(MemArray mainArray, int idx){
     if(idx>=mainArray.size){
         return;
     }
     free(mainArray.ptrArray[idx]);
 }
-void freeArray(MemArray mainArray){
+void free_array(MemArray mainArray){
     free(mainArray.ptrArray);
 }
 
-int main() {
-    MemArray a = create_MemArray(2);
+// int main() {
+//     MemArray a = create_MemArray(2);
     
-    run_wc(&a,"mylibrary.c");
+//     run_wc(&a,"mylibrary.c");
     
-    run_wc(&a,"bruh.c");
-    printf("%s\n", valueAt(a,0));
-    removeAt(a,0);
-    printf("%s\n", valueAt(a,2));
-   return 0;
-}
+//     run_wc(&a,"bruh.c");
+//     printf("%s\n", value_at(a,0));
+//     remove_at(a,0);
+//     printf("%s\n", value_at(a,2));
+//    return 0;
+// }
