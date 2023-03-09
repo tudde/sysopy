@@ -41,7 +41,7 @@ int main(){
         fgets(command,255,stdin);
 
         struct tms begin, end; 
-        struct timespec begin_sys, end_sys, begin_real, end_real; 
+        struct timespec begin_real, end_real; 
         clock_gettime(CLOCK_REALTIME, &begin_real);
         times(&begin);
         strtok(command," ");

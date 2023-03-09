@@ -4,11 +4,11 @@ CFLAGS = -Wall
 all: static
 
 static: static-lib
-		$(CC) -c main.c
+		$(CC) $(CFLAGS) -c main.c
 		$(CC) main.o libmylibrary.a -o main
 
 shared: shared-lib 
-		$(CC) -c main.c
+		$(CC) $(CFLAGS) -c main.c
 		$(CC) main.c -L. -lmylibrary -o main -Wl,-rpath=.
 dynamic: shared-lib 
 		$(CC) -c main.c
