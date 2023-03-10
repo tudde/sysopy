@@ -8,6 +8,7 @@
 int main(int argc, char *argv[]){
     if(argc!=5){
         printf("Incorrect number of arguments");
+        return -1;
     }
     char to_replace = argv[1][0];
     char replace_with = argv[2][0];
