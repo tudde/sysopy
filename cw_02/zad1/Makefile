@@ -13,4 +13,4 @@ sys:
 
 
 clean:
-	rm main_sys main_lib  *.o
+	rm main_sys main_lib *.o
