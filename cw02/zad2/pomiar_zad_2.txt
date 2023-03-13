@@ -1,0 +1,6 @@
+POMIAR POJEDYNCZE ZNAKI
+0.48user 0.33system 0:00.82elapsed 99%CPU (0avgtext+0avgdata 1328maxresident)k
+0inputs+13232outputs (0major+67minor)pagefaults 0swaps
+POMIAR BLOKI 1024
+0.06user 0.01system 0:00.07elapsed 97%CPU (0avgtext+0avgdata 1436maxresident)k
+0inputs+13232outputs (0major+71minor)pagefaults 0swaps
