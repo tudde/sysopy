@@ -14,7 +14,6 @@ int searchdir(char path[], char tofind[]){
     struct dirent* entry;
     struct stat stats;
     char newpath[PATH_MAX];
-    // printf("\nOLDPATH: %s\n", path);
 
     if ((dir = opendir(path)) != NULL){
             while ((entry = readdir(dir)) != NULL) {
@@ -29,7 +28,7 @@ int searchdir(char path[], char tofind[]){
                         
                         int id = fork();
                         if(id == 0){
-                            // printf("process: %d; parent: %d\n\n", getpid(),getppid());
+                           
                             searchdir(newpath, tofind);
                             exit(0);
                         }
@@ -41,19 +40,14 @@ int searchdir(char path[], char tofind[]){
                     fread(buff, sizeof(char), strlen(tofind), file);
                     fclose(file);
                     if(strcmp(buff,tofind) == 0){
-                        printf("\n%s\n",newpath);
+                        printf("\n%s\nprocess: %i\n",newpath,getpid());
                     }
-
-
-                    
-
                 }
             }
             
         }
         closedir(dir);
         return 0;
-
 }
 
 
@@ -72,11 +66,7 @@ int main(int argc, char *argv[]){
     }
 
     
-    
     searchdir(argv[1], argv[2]);
-
-   
-
 
     return 0;
 }
