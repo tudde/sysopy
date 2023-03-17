@@ -12,17 +12,11 @@ int main(int argc, char *argv[]){
     }
 
     printf("Main process name: %s\n\n", argv[0]);
-
+    printf("\n%s\n", argv[1]);
     fflush(stdout);
 
-    execl("/bin/ls",argv[1], (char *)NULL);
-
-
-
     
-
-
-
+    execl("/bin/ls", "ls", argv[1], (char *)NULL);
 
     return 0;
 }
