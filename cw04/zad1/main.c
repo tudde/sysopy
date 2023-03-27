@@ -35,6 +35,8 @@ int main(int argc, char *argv[]){
         fprintf(stderr, "Wrong number of arguments");
         return -1;
     }
+    
+
 
     option selectedOption;
 
@@ -62,12 +64,12 @@ int main(int argc, char *argv[]){
 
     switch (selectedOption){
     case IGNORE:
-            action.sa_handler = SIG_IGN;
-            sigaction(SIGUSR1, &action, NULL); 
+        action.sa_handler = SIG_IGN;
+        sigaction(SIGUSR1, &action, NULL); 
         break;
     case HANDLER:
-            action.sa_handler = handle;
-            sigaction(SIGUSR1, &action, NULL); 
+        action.sa_handler = handle;
+        sigaction(SIGUSR1, &action, NULL); 
         break;
     case MASK:
         
@@ -77,8 +79,6 @@ int main(int argc, char *argv[]){
     case PENDING:
         sigaddset(&mask,SIGUSR1);
         sigprocmask(SIG_BLOCK, &mask, NULL);
-        
-       
         break;
     
     default:
@@ -86,6 +86,7 @@ int main(int argc, char *argv[]){
     }
 
     printf("Begin parent\n");
+    
     raise(SIGUSR1);
     
     if(selectedOption == PENDING){
@@ -98,9 +99,12 @@ int main(int argc, char *argv[]){
     pid = fork();
     if(pid == 0){
         printf("\nBegin fork\n");
-        raise(SIGUSR1);
+        
         if(selectedOption == PENDING){
         isPending();
+        }
+        else{
+            raise(SIGUSR1);
         }
         return 0;
 
@@ -110,7 +114,7 @@ int main(int argc, char *argv[]){
 
 
     
-    execl("./to_exec","to_exec", argv[2], (char*)NULL);
+    execl("./to_exec","to_exec", argv[1], NULL);
     perror("a");
 
 

@@ -1,0 +1,7 @@
+W przypadku opcji ignore i mask, ignorowanie sygnalu jest dziedzicznone zarowno w przypadku forka jak i execa.
+
+Przypisanie handlera do sygnalu dziedziczone jest przez forka, ale juz nie execa
+(exec nadpisuje handler defaultowym zachowaniem)
+
+Pending sygnal z parenta dalej widoczny execu, ale nie w forku
+

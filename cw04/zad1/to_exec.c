@@ -22,10 +22,12 @@ int main(int argc, char *argv[]){
  
 
     printf("\nBegin exec\n");
-    raise(SIGUSR1);
-
-    if( strcmp(argv[2], "pending") == 0){
+   
+    if( strcmp(argv[1], "pending") == 0){
         isPending();
+    }
+    else{
+        raise(SIGUSR1);
     }
 
     return 0;
