@@ -6,9 +6,9 @@ all: main
 
 main:
 	$(CC) $(CFLAGS) -c main.c 
-	$(CC) main.o -o main
+	$(CC) main.o -o main -l pthread -l rt
 	
 	
 	
 clean:
-	rm *.o main
+	rm *.o main 
