@@ -7,7 +7,6 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 
-
 int customer_cnt = 0;
 int* last_served;
 
