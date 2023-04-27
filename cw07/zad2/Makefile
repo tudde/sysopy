@@ -1,5 +1,5 @@
-CC=gcc
 CFLAGS =-Wall
+CC=gcc
 
 all: main
 

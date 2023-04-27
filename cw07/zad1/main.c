@@ -128,18 +128,13 @@ int main(int argc, char *argv[]){
                 printf("Klient %d nie znalazl fryzjera i wyszedl\n", customer_cnt);
                 if(customer_cnt>*last_served){
                     *last_served=customer_cnt;
-                }
+                }          
                 
-                
-            }
-
-            
+            }   
         
             exit(0);
 
         }
-
-
 
     }
 
